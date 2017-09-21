@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dariusbell.classroster.MainActivity">
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="187dp"
+        android:layout_height="53dp"
+        android:text="ToggleButton"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+        app:buttonTint="@color/colorPrimary"
+        app:layout_constraintLeft_toRightOf="@+id/toggleButton"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="6dp"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="177dp"
+        android:layout_height="53dp"
+        android:text="ToggleButton"
+        tools:layout_editor_absoluteY="6dp"
+        app:layout_constraintRight_toLeftOf="@+id/toggleButton2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="347dp"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="70dp"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="My first name is..."
+            tools:ignore="HardcodedText,LabelFor" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
