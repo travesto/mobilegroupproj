@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidDomInspection -->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dariusbell.classroster.MainActivity"
+    android:background="#acf6d1"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="194dp"
+        android:layout_height="65dp"
+        android:background="@drawable/Untitled"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-15dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="186dp"
+        android:layout_height="49dp"
+        android:background="@drawable/typea"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="345dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="My first name is..."
+        tools:ignore="HardcodedText,LabelFor"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="@string/MyLastNameIs"
+        android:inputType="textPersonName"
+        tools:ignore="HardcodedText,LabelFor"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+</android.support.constraint.ConstraintLayout>
