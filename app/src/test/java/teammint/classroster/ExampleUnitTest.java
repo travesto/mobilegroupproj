@@ -1,4 +1,4 @@
-package com.example.dariusbell.classroster;
+package teammint.classroster;
 
 import org.junit.Test;
 

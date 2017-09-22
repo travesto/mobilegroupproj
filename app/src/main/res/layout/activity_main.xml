@@ -4,46 +4,199 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dariusbell.classroster.MainActivity">
+    tools:context="teammint.classroster.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
-    <ToggleButton
-        android:id="@+id/toggleButton2"
-        android:layout_width="187dp"
-        android:layout_height="53dp"
-        android:text="ToggleButton"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-        app:buttonTint="@color/colorPrimary"
-        app:layout_constraintLeft_toRightOf="@+id/toggleButton"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="6dp"
-        tools:ignore="HardcodedText,MissingConstraints" />
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="177dp"
-        android:layout_height="53dp"
-        android:text="ToggleButton"
-        tools:layout_editor_absoluteY="6dp"
-        app:layout_constraintRight_toLeftOf="@+id/toggleButton2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints" />
-
-    <LinearLayout
-        android:layout_width="347dp"
-        android:layout_height="44dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="70dp"
-        tools:ignore="MissingConstraints">
-
-        <EditText
-            android:id="@+id/editText3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="My first name is..."
-            tools:ignore="HardcodedText,LabelFor" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.constraint.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:id="@+id/fName"
+                                    android:layout_width="352dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:text="@string/fName"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="My first name is..."
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginLeft="8dp" />
+
+                                <EditText
+                                    android:id="@+id/lName"
+                                    android:layout_width="352dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:text="@string/lName"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/fName"
+                                    tools:text="My last name is..." />
+
+                                <EditText
+                                    android:id="@+id/major"
+                                    android:layout_width="352dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:text="@string/major"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/lName"
+                                    tools:text="My major is..." />
+
+                                <EditText
+                                    android:id="@+id/location"
+                                    android:layout_width="352dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:text="@string/location"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/major"
+                                    tools:text="I am from..." />
+
+                                <EditText
+                                    android:id="@+id/gender"
+                                    android:layout_width="352dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:text="@string/gender"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/location"
+                                    tools:text="I am a..." />
+
+                                <ImageView
+                                    android:id="@+id/imageView"
+                                    android:layout_width="167dp"
+                                    android:layout_height="134dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="16dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/gender"
+                                    app:srcCompat="@android:drawable/ic_menu_camera" />
+
+                                <Button
+                                    android:id="@+id/button3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="16dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginRight="24dp"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Button"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/button"
+                                    tools:text="Clear Picture"
+                                    app:layout_constraintVertical_bias="0.027" />
+
+                                <Button
+                                    android:id="@+id/button"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginRight="24dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="Button"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/gender"
+                                    tools:text="Take Picture" />
+
+                                <EditText
+                                    android:id="@+id/editText8"
+                                    android:layout_width="352dp"
+                                    android:layout_height="151dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="16dp"
+                                    android:ems="10"
+                                    android:inputType="textMultiLine"
+                                    android:text="Notes"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                                <Button
+                                    android:id="@+id/button4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:text="Button"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/editText8"
+                                    tools:text="Save" />
+
+                            </android.support.constraint.ConstraintLayout>
+                        </LinearLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 
 </android.support.constraint.ConstraintLayout>

@@ -4,8 +4,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "com.example.dariusbell.classroster"
-        minSdkVersion 17
+        applicationId "teammint.classroster"
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"

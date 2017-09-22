@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ClassRoster</string>
+    <string name="major">My major is...</string>
+    <string name="fName">My first name is...</string>
+    <string name="lName">My last name is...</string>
+    <string name="location">I am from...</string>
+    <string name="gender">I am a...</string>
 </resources>

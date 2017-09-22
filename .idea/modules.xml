@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClassRoster.iml" filepath="$PROJECT_DIR$/ClassRoster.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mobilegroupproj.iml" filepath="$PROJECT_DIR$/mobilegroupproj.iml" />
     </modules>
   </component>
 </project>
