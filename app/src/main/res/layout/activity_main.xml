@@ -15,7 +15,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                                     android:id="@+id/major"
                                     android:layout_width="352dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="15dp"
                                     android:ems="10"
                                     android:inputType="textPersonName"
                                     android:text="@string/major"
@@ -120,7 +122,7 @@
                                      />
 
                                 <ImageView
-                                    android:id="@+id/imageView"
+                                    android:id="@+id/Frame"
                                     android:layout_width="167dp"
                                     android:layout_height="134dp"
                                     android:layout_marginLeft="16dp"
@@ -131,27 +133,27 @@
                                     app:srcCompat="@android:drawable/ic_menu_camera" />
 
                                 <Button
-                                    android:id="@+id/button3"
+                                    android:id="@+id/clearPic"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginEnd="24dp"
-                                    android:layout_marginRight="24dp"
+                                    android:layout_marginRight="19dp"
                                     android:layout_marginTop="16dp"
                                     android:text="Button"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/button"
-                                    app:layout_constraintVertical_bias="0.027"
+                                    app:layout_constraintTop_toBottomOf="@+id/takePic"
+                                    app:layout_constraintVertical_bias="0.003"
                                     tools:text="Clear Picture" />
 
                                 <Button
-                                    android:id="@+id/button"
+                                    android:id="@+id/takePic"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="24dp"
-                                    android:layout_marginRight="24dp"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_marginRight="45dp"
+                                    android:layout_marginTop="-8dp"
                                     android:text="Button"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/gender"
@@ -171,7 +173,7 @@
                                     android:text="Notes"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                                    app:layout_constraintTop_toBottomOf="@+id/Frame" />
 
                                 <Button
                                     android:id="@+id/button4"
