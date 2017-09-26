@@ -3,6 +3,7 @@ package teammint.classroster;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner dropdown = (Spinner)findViewById(R.id.gender);
         //create a list of items for the spinner.
-        String[] items = new String[]{"Male", "Female","Other"};
+        String[] items = new String[]{"Male", "Female"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     //Clear picture data
     public void clear(View v)
     {
-        b.setBackground(null);
+        b.setImageBitmap(null);
     }
     //Store camera data in bitmap and set frame
     public void onActivityResult(int requestCode, int resultCode, Intent data)
