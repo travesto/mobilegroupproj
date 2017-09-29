@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static  final int CAMERA_REQUEST = 123;
     ImageView b;
 
-    DatabaseHelper mDatabaseHelper;
+    //DatabaseHelper mDatabaseHelper;
     private Button btnAdd, btnViewData;
     private EditText Fname;
     private EditText Lname;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         hometown = (EditText) findViewById(R.id.location);
         notes = (EditText) findViewById(R.id.note);
         btnAdd = (Button) findViewById(R.id.addStudent);
-        mDatabaseHelper = new DatabaseHelper(this);
+        //mDatabaseHelper = new DatabaseHelper(this);
 
 
 
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         spec.setIndicator("View All");
         host.addTab(spec);
 
-<<<<<<< HEAD
         Spinner dropdown = (Spinner)findViewById(R.id.gender);
 //create a list of items for the spinner.
         String[] items = new String[]{"Male", "Female"};
@@ -75,15 +74,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, items);
 //set the spinners adapter to the previously created one.
 
-=======
-        final Spinner dropdown = (Spinner)findViewById(R.id.gender);
-        //create a list of items for the spinner.
-        String[] items = new String[]{"Male", "Female"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, items);
-        //set the spinners adapter to the previously created one.
->>>>>>> origin/Test1
         dropdown.setAdapter(adapter);
         /*btnAdd.setOnClickListener(new View.OnClickListener() {
 
