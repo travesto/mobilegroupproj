@@ -66,7 +66,9 @@
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    tools:text="My first name is..." />
+                                    tools:text="My first name is..."
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp" />
 
                                 <EditText
                                     android:id="@+id/lName"
@@ -109,17 +111,16 @@
 
                                 <Spinner
                                     android:id="@+id/gender"
-                                    android:layout_width="352dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="16dp"
-                                    android:ems="10"
+                                    style="@style/spinner_style"
+                                    android:layout_width="346dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginTop="9dp"
+                                    android:ems="20"
 
 
-                                    android:spinnerMode="dropdown"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/location"
-                                     />
+                                    app:layout_constraintTop_toBottomOf="@+id/location" />
 
                                 <ImageView
                                     android:id="@+id/Frame"
@@ -138,7 +139,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="16dp"
                                     android:layout_marginEnd="24dp"
-                                    android:layout_marginRight="19dp"
+                                    android:layout_marginRight="24dp"
                                     android:layout_marginTop="16dp"
                                     android:text="Button"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -152,8 +153,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="24dp"
-                                    android:layout_marginRight="45dp"
-                                    android:layout_marginTop="-8dp"
+                                    android:layout_marginRight="24dp"
                                     android:text="Button"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/gender"
@@ -165,7 +165,7 @@
                                     android:layout_height="151dp"
                                     android:layout_marginEnd="8dp"
                                     android:layout_marginLeft="16dp"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginRight="8dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginTop="16dp"
                                     android:ems="10"

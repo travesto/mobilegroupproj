@@ -6,6 +6,20 @@
         <item name="colorPrimary">#B4D6A4</item>
         <item name="colorPrimaryDark">#67BC9A</item>
         <item name="colorAccent">#0071A7</item>
+        <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
+    </style>
+    <style name="SpinnerStyle" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">@android:color/black</item>
+        <item name="android:dividerHeight">1.0dp</item>
+        <item name="android:background">@drawable/gradient_spinner</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
+    </style>
+    <style name="spinner_style">
+
+        <item name="android:background">@drawable/gradient_spinner</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
     </style>
 
 </resources>
