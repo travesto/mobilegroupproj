@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, items);
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
-        /*btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -90,13 +90,18 @@ public class MainActivity extends AppCompatActivity {
                     AddData(Entry3);
                     AddData(Entry4);
                     AddData(Entry5);
+                    Fname.setText("");
+                    Lname.setText("");
+                    major.setText("");
+                    hometown.setText("");
+                    notes.setText("");
 
                 } else {
                     toastMessage("You must put something in the text field!");
                 }
             }
         });
-        */
+
 
     }
     //Capture camera intent
@@ -119,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             b.setImageBitmap(photo);
         }
     }
-    /*public void AddData(String newEntry) {
+    public void AddData(String newEntry) {
 
         boolean insertData = mDatabaseHelper.addData(newEntry);
 
@@ -129,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
             toastMessage("Something went wrong");
         }
-    }*/
+    }
     private void toastMessage(String message){
 
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
