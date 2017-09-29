@@ -5,4 +5,6 @@
     <string name="lName">My last name is...</string>
     <string name="location">I am from...</string>
     <string name="gender">I am a...</string>
+    <string name="majoro">Major</string>
+    <string name="take_picture">Take Picture</string>
 </resources>
