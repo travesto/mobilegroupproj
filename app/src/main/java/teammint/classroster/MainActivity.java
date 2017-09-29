@@ -5,12 +5,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-<<<<<<< HEAD
+
 import android.provider.BaseColumns;
-=======
-import android.media.Image;
->>>>>>> origin/Test1
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -93,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
                 String Entry4 = hometown.getText().toString();
                 String Entry5 = notes.getText().toString();
                 if (Entry1.length() != 0 || Entry2.length() != 0 || Entry3.length() != 0 ||Entry4.length() != 0 || Entry5.length() != 0) {
-                    AddData(Entry1);
-                    AddData(Entry2);
-                    AddData(Entry3);
-                    AddData(Entry4);
-                    AddData(Entry5);
+                    //AddData(Entry1);
+                    //AddData(Entry2);
+                    //AddData(Entry3);
+                    //AddData(Entry4);
+                    //AddData(Entry5);
                     Fname.setText("");
                     Lname.setText("");
                     major.setText("");
@@ -105,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     notes.setText("");
 
                 } else {
-                    toastMessage("You must put something in the text field!");
+                    //toastMessage("You must put something in the text field!");
                 }
             }
         });
@@ -132,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             b.setImageBitmap(photo);
         }
     }
-<<<<<<< HEAD
+
 
 
     //db contract class
@@ -168,19 +165,23 @@ public class MainActivity extends AppCompatActivity {
         public FeedReaderDbHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
+
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(SQL_CREATE_ENTRIES);
         }
+
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             // This database is only a cache for online data, so its upgrade policy is
             // to simply to discard the data and start over
             db.execSQL(SQL_DELETE_ENTRIES);
             onCreate(db);
         }
+
         public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onUpgrade(db, oldVersion, newVersion);
         }
-=======
+    }
+        /*
     public void AddData(String newEntry) {
 
         boolean insertData = mDatabaseHelper.addData(newEntry);
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
 
->>>>>>> origin/Test1
     }
+    */
+
 }
