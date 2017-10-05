@@ -1,3 +1,4 @@
+
 package teammint.classroster;
 
 import android.app.Activity;
@@ -5,7 +6,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.provider.BaseColumns;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -26,10 +30,14 @@ import android.content.Context;
 
 import android.database.Cursor;
 import java.sql.Blob;
+import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
+
+    public static final ArrayList<Student> Students = new ArrayList<Student>();
+
     TabHost tabHost;
     Button btn;
     private static  final int CAMERA_REQUEST = 123;
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText image;
     private ListView listView;
 
-    //functiouns
+    //functions
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,22 +68,6 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = (Button) findViewById(R.id.addStudent);
         mDatabaseHelper = new DatabaseHelper(this);
 
-
-
-        /*btnViewData.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, ListDataActivity.class);
-
-                startActivity(intent);
-
-            }
-
-        });*/
-
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
 
@@ -87,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Tab 2
         spec = host.newTabSpec("View All");
-        spec.setContent(R.id.tab2);
+        spec.setContent(R.id.studentsView);
         spec.setIndicator("View All");
         host.addTab(spec);
 
@@ -119,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        /*
         final Cursor cursor = mDatabaseHelper.getAllPersons();
         String [] columns = new String[] {
                 DatabaseHelper.PERSON_COLUMN_ID,
@@ -129,14 +121,36 @@ public class MainActivity extends AppCompatActivity {
                 R.id.personID,
                 R.id.personName
         };
+        */
 
+        /*
         SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.person_info,
                 cursor, columns, widgets, 0);
+
         listView = (ListView)findViewById(R.id.listview);
         listView.setAdapter(cursorAdapter);
+        */
+        try {
+            for (int i = 0; i < 20; i++)
+                Students.add(new Student(i));
 
-
+            FragmentManager FragMan = getSupportFragmentManager();
+            for (int i = 0; i < Students.size(); i++)
+            {
+                FragmentTransaction FragTran = FragMan.beginTransaction();
+                StudentFragment SF =  StudentFragment.newInstance(Students.get(i));
+                FragTran.add(R.id.studentsView, SF, Students.get(i).getName());
+                FragTran.commit();
+                FragMan.executePendingTransactions();
+            }
+        }
+        catch(Exception e)
+        {
+            String s = e.getMessage();
+            s = s;
+        }
     }
+
     //Capture camera intent
     public void btnClick(View v)
     {
@@ -173,5 +187,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
 
     }
+    public void onFragmentInteraction(Uri uri)
+    {
 
+    }
 }
