@@ -2,22 +2,130 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="9f06fa569797813ff268d4e22b872aee1f259fef">
-        <dex dex="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3478f4ea5fa1d5d60bd343f477cc3f7485a98589\classes.dex" />
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_129f12ec2c8bb32ef8705b86ed77017af1b9e2cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\30260663ab3092a3ee54165ab4ba287ccc665504\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_50f1550930057b967e9d2631ecd57166e12c9b17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\c5167e1b1a69e2e520537942b187ce1c41c1948c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_696b9343508b6195613111dae5e5a8d6b63d273c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\e0215d44a5b3c733694e6159a94b8b5da1800a2b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_898adffda2e5cd83bfff2cd41bac81897caf9f88.jar" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b3d7d49cdf746728e5193e407437986badbf9918\classes.dex" />
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ac29d4fb28dc1f5d196743e50c235f63e15eb550\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\0aecccfff3674789d75ee5ad7d913e333e584bcc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_4b24d2488f4cf8a8cd048b5c3ff05f744846b516.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\6c59ee463e0be9353c564df6fda92f5a32e059d5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_f4909554395037548338531be7f5ca5ad9d9a3ad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\support-annotations-26.0.0-alpha1_c1768cf18b6e10651cf83fd31d07dc3bdec92456.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\d687a3c288d1607347346e2af987c949ebc3a551\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_0f4720585d0b4cd70ced1d73f436ef1ecc3bf1c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\da77d71e1e21264906f2b145d47514b7ef5a7fe7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_f831c2ccfbe9d2657e2b4c0c6531f226d0c48325.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\2bd878b2cc1789c8287406b7f2aa4b9ba9757a2b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_6b93fcd0b9830c58fd18b0c9ddb2bf6838f137f3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="16461e8fa89c6d3dd2e6057f86bfb224ceec935f">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fe8086377b755be6abff02ba481ab5eea5cb2e02\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\1e71d445a17abffa642a22ed4a1c75f04eae3061\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_f120cfabe90c65f20d5778511d86d1e93ebb0868.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Sebmansigh\.android\build-cache\a6ae436c0372e5aa49a10ec26a3c241963b580aa\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="C:\Users\Sebmansigh\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\pre-dexed\debug\classes_5f014c7d6fc700afdef0dcabe7bef4514314b21e.jar" />
     </item>
 
 </items>
