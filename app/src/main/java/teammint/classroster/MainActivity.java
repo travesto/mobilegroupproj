@@ -2,47 +2,40 @@
 package teammint.classroster;
 
 import android.app.Activity;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.BaseColumns;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TabHost;
-import android.content.Intent;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TabHost;
 import android.widget.Toast;
-import android.content.ContentValues;
 
-import android.content.Context;
-
-import android.database.Cursor;
-import java.sql.Blob;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import teammint.classroster.database.DataSource;
+import teammint.classroster.model.DataStudent;
 
 
 public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
 
     public static final ArrayList<Student> Students = new ArrayList<Student>();
-
     TabHost tabHost;
     Button btn;
     private static  final int CAMERA_REQUEST = 123;
     ImageView b;
-
+    DataSource mDataSource;
     //DatabaseHelper mDatabaseHelper;
     private Button btnAdd, btnViewData;
     private EditText Fname;
@@ -65,22 +58,28 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         major = (EditText) findViewById(R.id.major);
         hometown = (EditText) findViewById(R.id.location);
         notes = (EditText) findViewById(R.id.note);
+        btnAdd = (Button) findViewById(R.id.addStudent);
         //DatabaseHelper = new DatabaseHelper(this);
+        mDataSource = new DataSource(this);
+        mDataSource.open();
+        toastMessage("Database Created");
+
+
 
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
-
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Add Student");
         spec.setContent(R.id.tab1);
         spec.setIndicator("Add Student");
         host.addTab(spec);
-
         //Tab 2
         spec = host.newTabSpec("View All");
         spec.setContent(R.id.studentsView);
         spec.setIndicator("View All");
         host.addTab(spec);
+
+
 
         final Spinner dropdown = (Spinner)findViewById(R.id.gender);
         //create a list of items for the spinner.
@@ -89,46 +88,45 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, items);
         //set the spinners adapter to the previously created one.
-
         dropdown.setAdapter(adapter);
-
-        /*btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            DataStudent mike = new DataStudent();
 
             @Override
             public void onClick(View v) {
+                mike.setID(UUID.randomUUID().toString());
+                mike.setFName(Fname.getText().toString());
+                mike.setLName(Lname.getText().toString());
+                mike.setMajor(major.getText().toString());
+                mike.setHome(hometown.getText().toString());
+                mike.setGender(dropdown.getSelectedItem().toString());
+                mike.setNotes(notes.getText().toString());
+                mike.setImage("Yeeap");
+                //long numTimes = mDataSource.getdataSimilarCount(notes.toString());
 
-                String Entry1 = Fname.getText().toString();
-                String Entry2 = Lname.getText().toString();
-                String Entry3 = major.getText().toString();
-                String Entry4 = dropdown.getSelectedItem().toString();
-                String Entry5 = hometown.getText().toString();
-                if (Entry1.length() != 0 || Entry2.length() != 0 || Entry3.length() != 0 || Entry4.length() != 0 || Entry5.length() != 0) {
-
-                    AddData(Entry1,Entry2,Entry3,Entry4,Entry5);
+                if (Fname.length() != 0 || Lname.length() != 0 || major.length() != 0 || hometown.length() != 0 || notes.length() != 0) {
+                    try {
+                        mDataSource.createStudent(mike);
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
+                    }
+                    toastMessage("Save Sucessfull!");
                 } else {
-                    toastMessage("You must put something in the text field!");
+                    toastMessage("You must enter data in ALL text fields!!");
                 }
             }
+
         });
-        /*
-        final Cursor cursor = mDatabaseHelper.getAllPersons();
-        String [] columns = new String[] {
-                DatabaseHelper.PERSON_COLUMN_ID,
-                DatabaseHelper.PERSON_COLUMN_FNAME
-        };
-        int [] widgets = new int[] {
-                R.id.personID,
-                R.id.personName
-        };
-        */
-
-        /*
-        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.person_info,
-                cursor, columns, widgets, 0);
-
-        listView = (ListView)findViewById(R.id.listview);
-        listView.setAdapter(cursorAdapter);
-        */
+        List<DataStudent> listfromDB = mDataSource.getAll();
+        List<String> studentNames = new ArrayList<>();
+        for(DataStudent student : listfromDB)
+        {
+            studentNames.add(student.getFName());
+        }
+        ArrayAdapter<String> ada = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,studentNames);
+        ListView listView = (ListView) findViewById(R.id.ListView);
+        listView.setAdapter(ada);
+/*
         try {
             for (int i = 0; i < 20; i++)
                 Students.add(new Student(i));
@@ -148,8 +146,21 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             String s = e.getMessage();
             s = s;
         }
+        */
+    }
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        mDataSource.close();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        mDataSource.open();
+    }
     //Capture camera intent
     public void btnClick(View v)
     {
@@ -170,17 +181,6 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             b.setImageBitmap(photo);
         }
     }
-    /*ublic void AddData(String Fname,String Lname, String maj, String gender,String location ) {
-
-        boolean insertData = mDatabaseHelper.insertPerson(Fname,Lname,maj,gender,location);
-
-        if (insertData) {
-            toastMessage("Data Successfully Inserted!");
-        } else {
-
-            toastMessage("Something went wrong");
-        }
-    }*/
     private void toastMessage(String message){
 
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
