@@ -8,12 +8,15 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
@@ -118,25 +121,15 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
 
         });
         List<DataStudent> listfromDB = mDataSource.getAll();
-        List<String> studentNames = new ArrayList<>();
-        for(DataStudent student : listfromDB)
-        {
-            studentNames.add(student.getFName());
-        }
-        ArrayAdapter<String> ada = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,studentNames);
-        ListView listView = (ListView) findViewById(R.id.ListView);
-        listView.setAdapter(ada);
-/*
-        try {
-            for (int i = 0; i < 20; i++)
-                Students.add(new Student(i));
 
+        try {
             FragmentManager FragMan = getSupportFragmentManager();
-            for (int i = 0; i < Students.size(); i++)
+            ((LinearLayout)(findViewById(R.id.studentsView))).removeAllViews();
+            for(DataStudent student : listfromDB)
             {
                 FragmentTransaction FragTran = FragMan.beginTransaction();
-                StudentFragment SF =  StudentFragment.newInstance(Students.get(i));
-                FragTran.add(R.id.studentsView, SF, Students.get(i).getName());
+                StudentFragment SF =  StudentFragment.newInstance(student);
+                FragTran.add(R.id.studentsView, SF, ""+student.hashCode());
                 FragTran.commit();
                 FragMan.executePendingTransactions();
             }
@@ -146,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             String s = e.getMessage();
             s = s;
         }
-        */
+        //*/
     }
     @Override
     protected void onPause()

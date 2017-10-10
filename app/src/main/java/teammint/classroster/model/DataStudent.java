@@ -28,12 +28,12 @@ public class DataStudent {
 
         }
 
-        private static byte[] getBytes(Bitmap bitmap) {
+        public static byte[] convertBytes(Bitmap bitmap) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
             return stream.toByteArray();
         }
-        private static Bitmap getImage(byte[] image) {
+        public static Bitmap convertImage(byte[] image) {
             return BitmapFactory.decodeByteArray(image, 0, image.length);
         }
 
