@@ -64,7 +64,7 @@ public class DataSource {
     public List<DataStudent> getAll(){
         List<DataStudent> dataStudents = new ArrayList<>();
         Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,
-                null,null,null,null,null);
+                null,null,null,null,StudentsTable.COLUMN_FNAME);
         while(cursor.moveToNext()){
             DataStudent student = new DataStudent();
             student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
@@ -77,6 +77,7 @@ public class DataSource {
             student.setImage(cursor.getBlob(7));
             dataStudents.add(student);
         }
+        cursor.close();
         return dataStudents;
     }
 }
