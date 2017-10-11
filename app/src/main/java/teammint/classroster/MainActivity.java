@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     public void clear(View v)
     {
         b.setImageBitmap(null);
+        picTaken = false;
     }
     //Store camera data in bitmap and set frame
     public void onActivityResult(int requestCode, int resultCode, Intent data)
