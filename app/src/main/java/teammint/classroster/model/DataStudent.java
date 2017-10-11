@@ -8,8 +8,6 @@ import java.io.ByteArrayOutputStream;
 
 import teammint.classroster.database.StudentsTable;
 
-import static teammint.classroster.database.StudentsTable.COLUMN_IMAGE;
-
 /**
  * Created by Darius Bell on 10/9/2017.
  */
@@ -30,12 +28,12 @@ public class DataStudent {
 
         }
 
-        private static byte[] getBytes(Bitmap bitmap) {
+        private static byte[] convertBytes(Bitmap bitmap) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
             return stream.toByteArray();
         }
-        private static Bitmap getImage(byte[] image) {
+        public static Bitmap convertImage(byte[] image) {
             return BitmapFactory.decodeByteArray(image, 0, image.length);
         }
 
@@ -59,7 +57,7 @@ public class DataStudent {
             this.image = b;
         }
         public void setImage(byte[] b) {
-            this.image = getImage(b);
+            this.image = convertImage(b);
         }
         public void setGender(String g) {
             this.gender = g;
@@ -89,7 +87,7 @@ public class DataStudent {
             return this.notes;
         }
         public byte[] getImage() {
-            return getBytes(this.image);
+            return convertBytes(this.image);
         }
         public String getGender() {
             return this.gender;
@@ -105,7 +103,7 @@ public class DataStudent {
             val.put(StudentsTable.COLUMN_LOCATION, location);
             val.put(StudentsTable.COLUMN_GENDER, gender);
             val.put(StudentsTable.COLUMN_NOTES, notes);
-            val.put(StudentsTable.COLUMN_IMAGE,getBytes(image));
+            val.put(StudentsTable.COLUMN_IMAGE,convertBytes(image));
             return val;
         }
 
