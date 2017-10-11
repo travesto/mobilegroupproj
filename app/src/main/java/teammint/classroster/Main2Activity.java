@@ -18,7 +18,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         object = (ImageView) findViewById(R.id.imageView);
         Animation FadeAnim= AnimationUtils.loadAnimation(getApplicationContext(),android.R.anim.slide_in_left);
-        FadeAnim.setDuration(1300);
+        FadeAnim.setDuration(2000);
         object.startAnimation(FadeAnim);
         FadeAnim.setAnimationListener(new Animation.AnimationListener(){
             @Override

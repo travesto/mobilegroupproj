@@ -16,12 +16,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     private Button btnAdd, btnViewData;
     private EditText Fname;
     private EditText Lname;
-    private EditText major;
+    private AutoCompleteTextView  major;
     private EditText hometown;
     private EditText notes;
     private EditText image;
@@ -63,7 +65,13 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         b = (ImageView) findViewById(R.id.Frame);
         Fname = (EditText) findViewById(R.id.fName);
         Lname = (EditText) findViewById(R.id.lName);
-        major = (EditText) findViewById(R.id.major);
+        // Get a reference to the AutoCompleteTextView in the layout
+        major = (AutoCompleteTextView) findViewById(R.id.major);
+        // Get the string array
+        String[] countries = getResources().getStringArray(R.array.majors_array);
+        // Create the adapter and set it to the AutoCompleteTextView
+        ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
+        major.setAdapter(adapt);
         hometown = (EditText) findViewById(R.id.location);
         notes = (EditText) findViewById(R.id.note);
         btnAdd = (Button) findViewById(R.id.addStudent);
