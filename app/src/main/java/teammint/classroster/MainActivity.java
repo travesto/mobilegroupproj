@@ -49,11 +49,14 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     private EditText notes;
     private EditText image;
     private ListView listView;
+    private boolean picTaken;
     private Bitmap photo;
 
     //functions
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        picTaken = false;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn = (Button) findViewById(R.id.takePic);
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                 mike.setImage(photo);
                 //long numTimes = mDataSource.getdataSimilarCount(notes.toString());
 
-                if (Fname.length() != 0 || Lname.length() != 0 || major.length() != 0 || hometown.length() != 0 || notes.length() != 0 || photo.getByteCount() != 0) {
+                if (Fname.length() != 0 && Lname.length() != 0 && major.length() != 0 && hometown.length() != 0 && notes.length() != 0 && picTaken) {
                     try {
                         mDataSource.createStudent(mike);
                         loadData();
@@ -178,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         {
             photo = (Bitmap) data.getExtras().get("data");
             b.setImageBitmap(photo);
+            picTaken = true;
         }
     }
     private void toastMessage(String message){
