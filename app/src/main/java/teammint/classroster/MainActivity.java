@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         btnAdd = (Button) findViewById(R.id.addStudent);
         mDataSource = new DataSource(this);
         mDataSource.open();
-        toastMessage("Database Created");
 
 
 
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                     } catch (SQLiteException e) {
                         e.printStackTrace();
                     }
-                    toastMessage("Save Sucessfull!");
+                    toastMessage("Save Successful!");
                 } else {
                     toastMessage("You must enter data in ALL text fields or Take Picture!!");
                 }
