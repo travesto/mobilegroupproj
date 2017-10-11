@@ -2,6 +2,7 @@
 package teammint.classroster;
 
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
@@ -12,6 +13,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +35,7 @@ import teammint.classroster.model.DataStudent;
 public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
 
+    public static final ArrayList<Student> Students = new ArrayList<Student>();
     TabHost tabHost;
     Button btn;
     private static  final int CAMERA_REQUEST = 123;
@@ -62,11 +66,11 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         btnAdd = (Button) findViewById(R.id.addStudent);
         mDataSource = new DataSource(this);
         mDataSource.open();
-        toastMessage("Database Created");
+        loadData();
 
 
 
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        final TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Add Student");
@@ -89,6 +93,30 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, items);
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
+
+
+        /*final Spinner ddown = (Spinner)findViewById(R.id.sorter);
+        //create a list of items for the spinner.
+        String[] item = new String[]{"Male", "Female"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapterr = new ArrayAdapter<>(this, R.layout.spinner_layout, item);
+        //set the spinners adapter to the previously created one.
+        ddown.setAdapter(adapterr);
+        ddown.setOnItemSelectedListener(new OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                if(selectedItem.equals("Male"))
+                {loadData();}
+                else if (selectedItem.equals("Female")){loadData2();}
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });*/
         btnAdd.setOnClickListener(new View.OnClickListener() {
             DataStudent mike = new DataStudent();
 
@@ -107,40 +135,22 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                 if (Fname.length() != 0 || Lname.length() != 0 || major.length() != 0 || hometown.length() != 0 || notes.length() != 0 || photo.getByteCount() != 0) {
                     try {
                         mDataSource.createStudent(mike);
-                        //loadData();
+                        loadData();
+                        host.setCurrentTab(1);
                     } catch (SQLiteException e) {
                         e.printStackTrace();
                     }
-                    toastMessage("Save Sucessfull!");
+
                 } else {
                     toastMessage("You must enter data in ALL text fields or Take Picture!!");
                 }
             }
         });
 
-        try {
-            FragmentManager FragMan = getSupportFragmentManager();
-            FragmentTransaction FragTran = FragMan.beginTransaction();
-            for (DataStudent s: mDataSource.getAll())
-            {
-                StudentFragment SF =  StudentFragment.newInstance(s);
-                FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());
-            }
-            FragTran.commit();
-        }
-        catch(Exception e)
-        {
-            String s = e.getMessage();
-            s = s;
-        }
 
     }
     @Override
-    protected void onPause()
-    {
-        super.onPause();
-        mDataSource.close();
-    }
+    protected void onPause() { super.onPause(); mDataSource.close();}
 
     @Override
     protected void onResume()
@@ -148,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         super.onResume();
         mDataSource.open();
     }
+    @Override
+    public void onBackPressed() { }
     //Capture camera intent
     public void btnClick(View v)
     {
@@ -177,15 +189,38 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     {
 
     }
-    /*public void loadData(){
-        List<DataStudent> listfromDB = mDataSource.getAll();
-        List<String> studentNames = new ArrayList<>();
-        for(DataStudent student : listfromDB)
-        {
-            studentNames.add(student.getFName());
+    public void loadData(){
+        try {
+            FragmentManager FragMan = getSupportFragmentManager();
+            FragmentTransaction FragTran = FragMan.beginTransaction();
+            for (DataStudent s: mDataSource.getAll())
+            {
+                StudentFragment SF =  StudentFragment.newInstance(s);
+                FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());
+            }
+            FragTran.commit();
         }
-        ArrayAdapter<String> ada = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,studentNames);
-        ListView listView = (ListView) findViewById(R.id.ListView);
-        listView.setAdapter(ada);
+        catch(Exception e)
+        {
+            String s = e.getMessage();
+            s = s;
+        }
+    }/*
+    public void loadData2(){
+        try {
+            FragmentManager FragMan = getSupportFragmentManager();
+            FragmentTransaction FragTran = FragMan.beginTransaction();
+            for (DataStudent s: mDataSource.getAllWomen())
+            {
+                StudentFragment SF =  StudentFragment.newInstance(s);
+                FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());
+            }
+            FragTran.commit();
+        }
+        catch(Exception e)
+        {
+            String s = e.getMessage();
+            s = s;
+        }
     }*/
 }

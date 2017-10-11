@@ -13,10 +13,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
@@ -41,6 +41,7 @@
                     android:orientation="vertical">
 
                     <ScrollView
+                        android:id="@+id/type1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbarStyle="insideOverlay"
@@ -60,25 +61,22 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="8dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="8dp"
                                     android:layout_marginStart="8dp"
-                                    android:layout_marginTop="24dp"
                                     android:ems="10"
                                     android:hint="First Name"
                                     android:inputType="textPersonName"
                                     android:textSize="24sp"
-                                    app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    tools:ignore="HardcodedText"
+                                    android:layout_marginRight="8dp"
                                     app:layout_constraintRight_toRightOf="parent"
+                                    android:layout_marginTop="16dp"
                                     app:layout_constraintTop_toBottomOf="@+id/Frame"
-                                    tools:ignore="HardcodedText" />
+                                    android:layout_marginLeft="8dp"
+                                    app:layout_constraintLeft_toLeftOf="parent" />
 
                                 <EditText
                                     android:id="@+id/lName"
-
                                     android:layout_width="0dp"
-
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="16dp"
                                     android:ems="10"
@@ -88,19 +86,21 @@
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/fName"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText"
+                                    android:layout_marginLeft="8dp"
+                                    app:layout_constraintHorizontal_bias="0.0" />
 
                                 <EditText
                                     android:id="@+id/major"
-
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="15dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_marginTop="13dp"
                                     android:ems="10"
                                     android:hint="@string/majoro"
                                     android:inputType="textPersonName"
                                     android:textSize="24sp"
-                                    app:layout_constraintHorizontal_bias="0.533"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/lName" />
@@ -109,12 +109,13 @@
                                     android:id="@+id/location"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="0dp"
                                     android:layout_marginTop="19dp"
                                     android:ems="10"
                                     android:hint="Where I am From..."
                                     android:inputType="textPersonName"
                                     android:textSize="24sp"
-                                    app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/major"
@@ -125,108 +126,103 @@
                                     style="@style/spinner_style"
 
 
-                                    android:layout_width="584dp"
-                                    android:layout_height="42dp"
+                                    android:layout_width="0dp"
+                                    android:layout_height="33dp"
                                     android:layout_marginTop="9dp"
                                     android:autofillHints="Gender"
-
                                     android:background="@drawable/drawableback"
                                     android:dropDownWidth="match_parent"
                                     android:spinnerMode="dropdown"
 
                                     app:layout_constraintTop_toBottomOf="@+id/location"
+                                    tools:ignore="MissingConstraints"
                                     tools:targetApi="o"
-                                    tools:layout_editor_absoluteX="5dp"
-                                    tools:layout_editor_absoluteY="439dp" />
+                                    android:layout_marginLeft="16dp"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    android:layout_marginRight="16dp"
+                                    app:layout_constraintRight_toRightOf="parent" />
 
                                 <ImageView
                                     android:id="@+id/Frame"
-                                    android:layout_width="188dp"
-                                    android:layout_height="142dp"
+                                    android:layout_width="152dp"
+                                    android:layout_height="139dp"
                                     android:layout_marginLeft="16dp"
-                                    android:layout_marginRight="8dp"
                                     android:layout_marginStart="16dp"
-                                    app:layout_constraintHorizontal_bias="0.0"
+                                    android:layout_marginTop="32dp"
                                     app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toLeftOf="@+id/takePic"
-                                    app:srcCompat="@mipmap/ic_launcher5"
-
-                                    tools:ignore="ContentDescription,MissingConstraints,RtlHardcoded"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    android:layout_marginTop="9dp" />
+                                    app:srcCompat="@mipmap/ic_launcher5"
+                                    tools:ignore="ContentDescription,MissingConstraints,RtlHardcoded" />
 
                                 <Button
                                     android:id="@+id/clearPic"
-                                    android:layout_width="116dp"
-                                    android:layout_height="59dp"
-
+                                    android:layout_width="91dp"
+                                    android:layout_height="60dp"
 
                                     android:layout_marginLeft="0dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="0dp"
 
                                     android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="clear"
                                     android:text="Clear Picture"
-                                    android:textSize="18sp"
+                                    android:textSize="14sp"
                                     app:layout_constraintLeft_toLeftOf="@+id/takePic"
                                     app:layout_constraintTop_toBottomOf="@+id/takePic"
                                     tools:ignore="HardcodedText,MissingConstraints" />
 
                                 <Button
                                     android:id="@+id/takePic"
-                                    android:layout_width="113dp"
-                                    android:layout_height="66dp"
+                                    android:layout_width="91dp"
+                                    android:layout_height="58dp"
                                     android:layout_marginEnd="24dp"
-
                                     android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
                                     android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
                                     android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="btnClick"
                                     android:text="@string/take_picture"
-                                    android:textSize="18sp"
+                                    android:textSize="14sp"
+                                    app:layout_constraintHorizontal_bias="0.349"
                                     app:layout_constraintLeft_toRightOf="@+id/Frame"
-                                    tools:ignore="MissingConstraints"
-                                    tools:layout_editor_absoluteY="16dp" />
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/Frame"
+                                    tools:ignore="MissingConstraints" />
 
                                 <EditText
                                     android:id="@+id/note"
-
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-
                                     android:layout_marginEnd="8dp"
 
                                     android:layout_marginLeft="8dp"
                                     android:layout_marginRight="8dp"
-
+                                    android:layout_marginStart="8dp"
                                     android:layout_marginTop="30dp"
-
                                     android:ems="10"
                                     android:hint="Something People Should Know About Me..."
                                     android:inputType="textMultiLine"
                                     android:textAlignment="viewStart"
                                     android:textSize="24sp"
-
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/gender"
-                                    tools:ignore="HardcodedText"
-                                    android:layout_marginStart="8dp" />
+                                    tools:ignore="HardcodedText" />
 
                                 <Button
                                     android:id="@+id/addStudent"
-                                    android:layout_width="142dp"
-                                    android:layout_height="75dp"
+                                    android:layout_width="131dp"
+                                    android:layout_height="72dp"
                                     android:layout_marginTop="32dp"
                                     android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="btnClick"
                                     android:text="Save"
-                                    android:textSize="24sp"
-                                    app:layout_constraintHorizontal_bias="0.501"
+                                    android:textSize="18sp"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/note"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText"
+                                    tools:layout_editor_absoluteY="582dp" />
 
                             </android.support.constraint.ConstraintLayout>
                         </LinearLayout>
@@ -234,18 +230,28 @@
 
                 </LinearLayout>
 
-
-                <ScrollView
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent">
-            <LinearLayout
-                android:id="@+id/studentsView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
-                </ScrollView>
+                    android:orientation="vertical">
 
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:id="@+id/studentsView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                    </ScrollView>
+
+                </LinearLayout>
             </FrameLayout>
 
         </LinearLayout>
