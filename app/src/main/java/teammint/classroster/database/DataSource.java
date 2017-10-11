@@ -74,7 +74,7 @@ public class DataSource {
             student.setHome(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_LOCATION)));
             student.setGender(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_GENDER)));
             student.setNotes(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_NOTES)));
-            student.setImage(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_IMAGE)));
+            student.setImage(cursor.getBlob(7));
             dataStudents.add(student);
         }
         return dataStudents;

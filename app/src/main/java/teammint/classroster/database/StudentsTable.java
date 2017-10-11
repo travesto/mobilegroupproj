@@ -1,5 +1,7 @@
 package teammint.classroster.database;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Darius Bell on 10/9/2017.
  */
@@ -28,7 +30,7 @@ public class StudentsTable {
                     COLUMN_LOCATION + " TEXT," +
                     COLUMN_GENDER + " TEXT," +
                     COLUMN_NOTES + " TEXT," +
-                    COLUMN_IMAGE + " TEXT" + ");";
+                    COLUMN_IMAGE + " BLOB" + ");";
 
     public static final String SQL_DELETE =
             "DROP TABLE " + TABLE_STUDENT;
