@@ -32,7 +32,6 @@ import teammint.classroster.model.DataStudent;
 public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
 
-    public static final ArrayList<Student> Students = new ArrayList<Student>();
     TabHost tabHost;
     Button btn;
     private static  final int CAMERA_REQUEST = 123;
@@ -120,18 +119,14 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         });
 
         try {
-            for (int i = 0; i < 20; i++)
-                Students.add(new Student(i));
-
             FragmentManager FragMan = getSupportFragmentManager();
-            for (int i = 0; i < Students.size(); i++)
+            FragmentTransaction FragTran = FragMan.beginTransaction();
+            for (DataStudent s: mDataSource.getAll())
             {
-                FragmentTransaction FragTran = FragMan.beginTransaction();
-                //StudentFragment SF =  StudentFragment.newInstance(Students.get(i));
-                //FragTran.add(R.id.studentsView, SF, Students.get(i).getName());
-                FragTran.commit();
-                FragMan.executePendingTransactions();
+                StudentFragment SF =  StudentFragment.newInstance(s);
+                FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());
             }
+            FragTran.commit();
         }
         catch(Exception e)
         {

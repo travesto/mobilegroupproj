@@ -55,7 +55,7 @@ public class StudentFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM_NAME, param1.getFName()+" "+param1.getLName());
         args.putString(ARG_PARAM_MAJOR, param1.getMajor());
-        args.putByteArray(ARG_PARAM_IMAGE, param1.getImage().getBytes());
+        args.putByteArray(ARG_PARAM_IMAGE, param1.getImage());
         fragment.setArguments(args);
         return fragment;
     }
