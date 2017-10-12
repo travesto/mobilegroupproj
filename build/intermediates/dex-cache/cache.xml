@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Travis\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="66c3e9f258a611da322186e1841551364cf2a4bd">
-        <dex dex="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3478f4ea5fa1d5d60bd343f477cc3f7485a98589\classes.dex" />
+        sha1="b335af5207afb020efd5d19da523f11722c154b4">
+        <dex dex="C:\Users\Travis\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_2729f143e355abcece4ce0c87cdab77a5ad3a9fb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Travis\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Darius Bell\Documents\GitHub\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b3d7d49cdf746728e5193e407437986badbf9918\classes.dex" />
+        <dex dex="C:\Users\Travis\AndroidStudioProjects\mobilegroupproj\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b18a6f748c7d143f48fd4c6800d2b5a928d07123\classes.dex" />
     </item>
 
 </items>

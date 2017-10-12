@@ -64,7 +64,7 @@ public class DataSource {
         String[] whereArgs = new String[] {
                 "Female"
         };
-        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,whereClause,whereArgs,null,null,StudentsTable.COLUMN_LNAME);
+        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,whereClause,whereArgs,null,null,StudentsTable.COLUMN_FNAME);
         while(cursor.moveToNext()){
             DataStudent student = new DataStudent();
             student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
@@ -77,6 +77,7 @@ public class DataSource {
             student.setImage(cursor.getBlob(7));
             dataStudents.add(student);
         }
+        cursor.close();
         return dataStudents;
     }
 }
