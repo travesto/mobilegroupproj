@@ -88,14 +88,14 @@
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/fName"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText"
+                                    android:layout_marginStart="8dp" />
 
                                 <AutoCompleteTextView
                                     android:id="@+id/major"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="0dp"
                                     android:layout_marginTop="12dp"
                                     android:ems="10"
                                     android:hint="@string/majoro"
@@ -104,14 +104,14 @@
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/lName" />
+                                    app:layout_constraintTop_toBottomOf="@+id/lName"
+                                    android:layout_marginStart="8dp" />
 
                                 <EditText
                                     android:id="@+id/location"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="0dp"
                                     android:layout_marginTop="19dp"
                                     android:ems="10"
                                     android:hint="Where I am From..."
@@ -120,28 +120,26 @@
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/major"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText"
+                                    android:layout_marginStart="8dp" />
 
                                 <Spinner
                                     android:id="@+id/gender"
-                                    style="@style/spinner_style"
-
-
                                     android:layout_width="0dp"
                                     android:layout_height="33dp"
                                     android:layout_marginTop="9dp"
                                     android:autofillHints="Gender"
-                                    android:background="@drawable/drawableback"
                                     android:dropDownWidth="match_parent"
                                     android:spinnerMode="dropdown"
-
                                     app:layout_constraintTop_toBottomOf="@+id/location"
                                     tools:ignore="MissingConstraints"
                                     tools:targetApi="o"
                                     android:layout_marginLeft="16dp"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     android:layout_marginRight="16dp"
-                                    app:layout_constraintRight_toRightOf="parent" />
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginEnd="16dp" />
 
                                 <ImageView
                                     android:id="@+id/Frame"
@@ -159,11 +157,6 @@
                                     android:id="@+id/clearPic"
                                     android:layout_width="91dp"
                                     android:layout_height="60dp"
-
-                                    android:layout_marginLeft="0dp"
-                                    android:layout_marginTop="0dp"
-
-                                    android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="clear"
                                     android:text="Clear Picture"
                                     android:textSize="14sp"
@@ -177,10 +170,8 @@
                                     android:layout_height="58dp"
                                     android:layout_marginEnd="24dp"
                                     android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="8dp"
+                                    android:layout_marginRight="24dp"
                                     android:layout_marginStart="8dp"
-                                    android:layout_marginTop="0dp"
-                                    android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="btnClick"
                                     android:text="@string/take_picture"
                                     android:textSize="14sp"
@@ -215,7 +206,6 @@
                                     android:layout_width="131dp"
                                     android:layout_height="72dp"
                                     android:layout_marginTop="140dp"
-                                    android:background="@android:drawable/checkbox_off_background"
                                     android:onClick="btnClick"
                                     android:text="Save"
                                     android:textSize="18sp"

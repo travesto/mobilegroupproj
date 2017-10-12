@@ -10,207 +10,56 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filterValuess">\"First Name</string>
         <string-array name="majors_array">
             <item>Business Administration</item>
             <item>Liberal Arts</item>
-            <item>Registered Nursing</item>
             <item>Psychology</item>
             <item>General Studies</item>
-            <item>Medical Assistant</item>
             <item>Biology</item>
             <item>Accounting</item>
-            <item>Cosmetology</item>
             <item>Social Work</item>
-            <item>Licensed Practical Nurse (LPN)</item>
             <item>Criminal Justice</item>
-            <item>Nursing Assistant</item>
             <item>English</item>
             <item>Elementary Education</item>
-            <item>Law</item>
             <item>Finance</item>
             <item>Speech Communication and Rhetoric</item>
-            <item>Auto Mechanic</item>
             <item>Political Science</item>
             <item>Advertising and Marketing</item>
-            <item>Welding</item>
-            <item>Mechanical Engineering</item>
             <item>Economics</item>
             <item>Sociology</item>
             <item>History</item>
-            <item>Law and Justice Administration</item>
-            <item>Early Childhood Education</item>
             <item>Education</item>
-            <item>Electrical Engineering</item>
-            <item>Computer Science</item>
-            <item>Educational Leadership and Administration</item>
-            <item>Emergency Medical Technician (EMT) and Paramedic</item>
             <item>Kinesiology And Exercise Science</item>
             <item>Math</item>
-            <item>Dental Assistant</item>
-            <item>Accounting Technology</item>
-            <item>Healthcare Administration	</item>
-            <item>Bus and Truck Driver	</item>
-            <item>Culinary Arts	</item>
-            <item>Special Education	</item>
-            <item>Massage Therapy</item>
             <item>Information Technology</item>
             <item>Chemistry</item>
             <item>Social Science</item>
-            <item>Curriculum and Instruction</item>
-            <item>Civil Engineering</item>
-            <item>Medicine</item>
-            <item>Heating and Air Conditioning (HVAC)</item>
-            <item>Public Administration</item>
-            <item>Human Services</item>
-            <item>Esthetician</item>
-            <item>Human Resources</item>
-            <item>Pharmacy</item>
-            <item>Paralegal</item>
-            <item>Pharmacy Technician</item>
-            <item>Computer Networking</item>
             <item>Information Science</item>
             <item>Journalism</item>
             <item>International Relations</item>
-            <item>Public Health</item>
-            <item>Electrician</item>
-            <item>Medical Executive Assistant and Administrative Medical Secretary</item>
-            <item>Sports Management and Fitness Administration</item>
-            <item>Sports Medicine</item>
-            <item>Medical Insurance Coding Specialist</item>
-            <item>Guidance Counselor</item>
-            <item>Administrative Assistant</item>
             <item>Fine Arts and Studio Arts</item>
             <item>Information Systems</item>
             <item>Anthropology</item>
-            <item>Chemical Engineering</item>
-            <item>Physical Therapy</item>
             <item>Music</item>
             <item>Graphic Design</item>
-            <item>Medical Insurance Specialist and Medical Biller</item>
-            <item>Counseling Psychologist</item>
-            <item>Health Information and Medical Records Technology</item>
-            <item>Secondary Education</item>
             <item>Drama and Theatre Arts</item>
             <item>Physics</item>
             <item>Physical Education</item>
-            <item>Architecture</item>
-            <item>Diesel Mechanic</item>
-            <item>Medical Office Assistant</item>
             <item>Spanish Language and Literature</item>
             <item>Human Development and Family Studies (HDFS)</item>
-            <item>Biomedical Engineering</item>
-            <item>Nail Technician</item>
-            <item>Veterinary Assistant</item>
-            <item>Fire Science</item>
             <item>Biochemistry</item>
-            <item>International Business</item>
-            <item>Surgical Technologist</item>
-            <item>Criminology</item>
-            <item>Dental Hygienist</item>
-            <item>Family Practice Nurse</item>
-            <item>Cinematography And Film</item>
-            <item>Phlebotomy</item>
-            <item>Physician Assistant</item>
-            <item>Baking And Pastry</item>
-            <item>Respiratory Therapy</item>
             <item>Philosophy</item>
             <item>Engineering</item>
             <item>Audiology and Speech Pathology</item>
-            <item>Industrial Engineering</item>
-            <item>Physical Therapist Assistant</item>
-            <item>Behavioral Science</item>
-            <item>Geology</item>
-            <item>Organizational Leadership</item>
             <item>Occupational Therapy</item>
             <item>Environmental Science</item>
             <item>Ministry</item>
             <item>International and Global Studies</item>
-            <item>Creative Writing</item>
-            <item>Reading Teacher and Literacy Specialist</item>
-            <item>Auto Body</item>
-            <item>Computer Programming</item>
-            <item>Drafting and Design Technology</item>
-            <item>Nursing Administration</item>
             <item>Theology</item>
             <item>Animal Science</item>
-            <item>Radiation Therapy (RT)</item>
-            <item>Logistics and Supply Chain Management</item>
-            <item>Geography</item>
-            <item>Web Design</item>
-            <item>Interior Design</item>
-            <item>Substance Abuse and Addiction Counseling</item>
-            <item>Dentistry</item>
-            <item>Biomedical Science</item>
-            <item>System Networking and LAN/WAN Manager</item>
-            <item>Public Relations</item>
             <item>Management Science</item>
-            <item>Fashion Merchandising</item>
-            <item>Corrections Officer</item>
-            <item>Design and Visual Communications</item>
-            <item>Entrepreneurship</item>
-            <item>Teaching English as a Second Language (ESL)</item>
-            <item>Neuroscience</item>
-            <item>Office Management and Supervision</item>
-            <item>Mental Health Counseling</item>
-            <item>Hospital and Healthcare Facility Management</item>
-            <item>Osteopathy</item>
-            <item>Recording Arts Technology</item>
-            <item>Clinical Psychology</item>
-            <item>Aircraft Mechanic</item>
-            <item>Diagnostic Medical Sonography and Sonographer</item>
-            <item>Athletic Training</item>
-            <item>Industrial Mechanics and Maintenance Technology</item>
-            <item>Industrial Technology</item>
-            <item>Occupational Therapy Assistant (OTA)</item>
-            <item>Fire Prevention and Safety Technology</item>
-            <item>Operations Management</item>
-            <item>Medical Office Management</item>
-            <item>Organizational Behavior Studies</item>
-            <item>Commercial and Advertising Art</item>
             <item>Religious Studies</item>
-            <item>Public Policy</item>
-            <item>Dietetics</item>
-            <item>Machine Tool Technology and Machinist</item>
-            <item>Child Development</item>
-            <item>Statistics</item>
-            <item>Nursing Science</item>
-            <item>Clinical and Medical Lab Technician</item>
-            <item>Animation</item>
-            <item>Fashion Design</item>
-            <item>Engineering Management</item>
-            <item>Child Care</item>
-            <item>Digital Communication and Multimedia</item>
             <item>Digital Entertainment Technology</item>
-            <item>Junior High and Middle School Teaching</item>
-            <item>Art History</item>
-            <item>Financial Planning</item>
-            <item>Hotel and Hospitality Management</item>
-            <item>Parks and Recreation Management</item>
-            <item>Carpentry</item>
-            <item>Exercise Physiology</item>
-            <item>Higher Education Administration</item>
-            <item>Clinical Laboratory Science and Medical Technology</item>
-            <item>Aviation</item>
-            <item>Rhetoric and Composition</item>
-            <item>Systems Engineering</item>
-            <item>Marriage and Family Therapy</item>
-            <item>Manufacturing Engineering Technician</item>
-            <item>Community Organization and Advocacy</item>
-            <item>Real Estate</item>
-            <item>Computer Installation and Repair Technician</item>
-            <item>Photography</item>
-            <item>Machine Shop Technology</item>
-            <item>Urban Planning</item>
-            <item>Linguistics</item>
-            <item>Computer Support Specialist</item>
-            <item>Cellular and Molecular Biology</item>
-            <item>Project Management</item>
-            <item>Forensic Science</item>
-            <item>Nutrition</item>
-            <item>Materials Engineering</item>
-            <item>Biotechnology</item>
-            <item>Executive Assistant</item>
-            <item>Agriculture</item>
-            <item>School Psychology</item>
         </string-array>
 </resources>
