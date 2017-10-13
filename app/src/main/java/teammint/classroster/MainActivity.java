@@ -34,6 +34,7 @@ import java.util.UUID;
 import teammint.classroster.database.DataSource;
 import teammint.classroster.model.DataStudent;
 
+// OUR SAVING GRACE IS THIS COMMENT! MAY THE LORD HAVE MERCY ON OUR SOULS!
 
 public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
