@@ -4,6 +4,8 @@ package teammint.classroster;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -32,6 +34,7 @@ import java.util.List;
 import java.util.UUID;
 
 import teammint.classroster.database.DataSource;
+import teammint.classroster.database.StudentsTable;
 import teammint.classroster.model.DataStudent;
 
 // OUR SAVING GRACE IS THIS COMMENT! MAY THE LORD HAVE MERCY ON OUR SOULS!
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     private ListView listView;
     private boolean picTaken;
     private Bitmap photo;
+    private TextView counting;
 
     //functions
     @Override
@@ -80,11 +84,12 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             hometown = (EditText) findViewById(R.id.location);
             notes = (EditText) findViewById(R.id.note);
             btnAdd = (Button) findViewById(R.id.addStudent);
+            counting = (TextView) findViewById(R.id.count);
             mDataSource = new DataSource(this);
             mDataSource.open();
 
             //mDataSource.wipe();
-            loadData();
+            loadData(mDataSource.getAll());
 
 
             final TabHost host = (TabHost) findViewById(R.id.tabHost);
@@ -96,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             host.addTab(spec);
             //Tab 2
             spec = host.newTabSpec("View All");
-            spec.setContent(R.id.studentsView);
+            spec.setContent(R.id.tab2);
             spec.setIndicator("View All");
             host.addTab(spec);
 
@@ -115,6 +120,37 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             //set the spinners adapter to the previously created one.
             dropdown.setAdapter(adapter);
 
+            final Spinner ddown = (Spinner) findViewById(R.id.Sorter);
+            String[] item = new String[]{"All"};//,"Male", "Female","Major"};
+            ArrayAdapter<String> ada = new ArrayAdapter<>(this, R.layout.spinner_layout, item);
+            ddown.setAdapter(ada);
+            ddown.setOnItemSelectedListener(new OnItemSelectedListener()
+            {
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String selectedItem = parent.getItemAtPosition(position).toString();
+                    if(selectedItem.equals("All"))
+                    {
+                        loadData(mDataSource.getAll());
+                    }
+                    /*else if(selectedItem.equals("Male"))
+                    {
+                        loadData(mDataSource.getAllMale());
+                    }
+                    else if(selectedItem.equals("Female"))
+                    {
+                        loadData(mDataSource.getAllWomen());
+                    }
+                    else if(selectedItem.equals("Majors"))
+                    {
+                        loadData(mDataSource.getAllMajorSort());
+                    }*/
+                }
+                public void onNothingSelected(AdapterView<?> parent)
+                {
+                }
+            });
+            // dropdown listener
+
 
             btnAdd.setOnClickListener(new View.OnClickListener() {
                 DataStudent mike = new DataStudent();
@@ -122,12 +158,12 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                 @Override
                 public void onClick(View v) {
                     mike.setID(UUID.randomUUID().toString());
-                    mike.setFName(Fname.getText().toString());
-                    mike.setLName(Lname.getText().toString());
-                    mike.setMajor(major.getText().toString());
-                    mike.setHome(hometown.getText().toString());
-                    mike.setGender(dropdown.getSelectedItem().toString());
-                    mike.setNotes(notes.getText().toString());
+                    mike.setFName(Fname.getText().toString().toUpperCase());
+                    mike.setLName(Lname.getText().toString().toUpperCase());
+                    mike.setMajor(major.getText().toString().toUpperCase());
+                    mike.setHome(hometown.getText().toString().toUpperCase());
+                    mike.setGender(dropdown.getSelectedItem().toString().toUpperCase());
+                    mike.setNotes(notes.getText().toString().toUpperCase());
                     mike.setImage(photo);
                     //Object o = os.getSelectedItem();
                     //mike.setOS(o.toString());
@@ -136,8 +172,13 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                     if (Fname.length() != 0 && Lname.length() != 0 && major.length() != 0 && hometown.length() != 0 && notes.length() != 0 && picTaken) {
                         try {
                             mDataSource.createStudent(mike);
-                            loadData();
+                            loadData(mDataSource.getAll());
                             host.setCurrentTab(1);
+                            Fname.setText("");
+                            Lname.setText("");
+                            major.setText("");
+                            notes.setText("");
+                            hometown.setText("");
                         } catch (SQLiteException e) {
                             e.printStackTrace();
                         }
@@ -154,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             s = s;
         }
 
+//
     }
     @Override
     protected void onPause() { super.onPause(); mDataSource.close();}
@@ -173,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         startActivityForResult(intent, CAMERA_REQUEST);
     }
     //Clear picture data
-    public void clear(View v)
+    public void clear()
     {
         b.setImageBitmap(null);
         picTaken = false;
@@ -197,12 +239,12 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     {
 
     }
-    public void loadData(){
+    public void loadData(List<DataStudent> x){
         try {
             FragmentManager FragMan = getSupportFragmentManager();
             ((LinearLayout) findViewById(R.id.studentsView)).removeAllViews();
             FragmentTransaction FragTran = FragMan.beginTransaction();
-            for(final DataStudent s: mDataSource.getAll())
+            for(final DataStudent s: x)
             {
                 final StudentFragment SF =  StudentFragment.newInstance(s);
                 final MainActivity ActivityMe = this;
@@ -224,6 +266,8 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             String s = e.getMessage();
             s = s;
         }
+        long data = x.size();
+        counting.setText("# of Students: " + (int) data);
     }/*
     public void loadData2(){
         try {

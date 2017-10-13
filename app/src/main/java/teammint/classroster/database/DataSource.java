@@ -66,7 +66,7 @@ public class DataSource {
     public List<DataStudent> getAll(){
         List<DataStudent> dataStudents = new ArrayList<>();
         Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,
-                null,null,null,null,"UPPER("+StudentsTable.COLUMN_FNAME+")");
+                null,null,null,null,"UPPER("+StudentsTable.COLUMN_FNAME+")" + " ASC");
         while(cursor.moveToNext()){
             DataStudent student = new DataStudent();
             student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
@@ -83,13 +83,62 @@ public class DataSource {
         cursor.close();
         return dataStudents;
     }
+    public long getdataItemCount() {
+        return DatabaseUtils.queryNumEntries(mdatabase, StudentsTable.TABLE_STUDENT);
+    }
     public List<DataStudent> getAllWomen(){
         List<DataStudent> dataStudents = new ArrayList<>();
         String whereClause = "gender = ?";
         String[] whereArgs = new String[] {
                 "Female"
         };
-        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,whereClause,whereArgs,null,null,StudentsTable.COLUMN_FNAME);
+        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,whereClause,whereArgs,
+                null,null,StudentsTable.COLUMN_FNAME);
+        while(cursor.moveToNext()){
+            DataStudent student = new DataStudent();
+            student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
+            student.setFName(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_FNAME)));
+            student.setLName(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_LNAME)));
+            student.setMajor(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_MAJOR)));
+            student.setHome(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_LOCATION)));
+            student.setGender(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_GENDER)));
+//            student.setOS(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_OS)));
+            student.setNotes(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_NOTES)));
+            student.setImage(cursor.getBlob(7));
+            dataStudents.add(student);
+        }
+        cursor.close();
+        return dataStudents;
+    }
+
+    public List<DataStudent> getAllMale() {
+        List<DataStudent> dataStudents = new ArrayList<>();
+        String whereClause = "gender = ?";
+        String[] whereArgs = new String[] {
+                "Male"
+        };
+        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,whereClause,whereArgs,
+                null,null,StudentsTable.COLUMN_FNAME);
+        while(cursor.moveToNext()){
+            DataStudent student = new DataStudent();
+            student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
+            student.setFName(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_FNAME)));
+            student.setLName(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_LNAME)));
+            student.setMajor(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_MAJOR)));
+            student.setHome(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_LOCATION)));
+            student.setGender(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_GENDER)));
+//            student.setOS(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_OS)));
+            student.setNotes(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_NOTES)));
+            student.setImage(cursor.getBlob(7));
+            dataStudents.add(student);
+        }
+        cursor.close();
+        return dataStudents;
+    }
+    public List<DataStudent> getAllMajorSort() {
+        List<DataStudent> dataStudents = new ArrayList<>();
+        Cursor cursor = mdatabase.query(StudentsTable.TABLE_STUDENT, StudentsTable.ALL_COL,
+                null,null,null,null,StudentsTable.COLUMN_MAJOR + " ASC");
         while(cursor.moveToNext()){
             DataStudent student = new DataStudent();
             student.setID(cursor.getString(cursor.getColumnIndex(StudentsTable.COLUMN_ID)));
