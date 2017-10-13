@@ -127,19 +127,19 @@
                                     android:id="@+id/gender"
                                     android:layout_width="0dp"
                                     android:layout_height="33dp"
-                                    android:layout_marginTop="9dp"
+                                    android:layout_marginTop="16dp"
                                     android:autofillHints="Gender"
-                                    android:dropDownWidth="match_parent"
                                     android:spinnerMode="dropdown"
                                     app:layout_constraintTop_toBottomOf="@+id/location"
                                     tools:ignore="MissingConstraints"
                                     tools:targetApi="o"
-                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginLeft="8dp"
                                     app:layout_constraintLeft_toLeftOf="parent"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginRight="8dp"
                                     app:layout_constraintRight_toRightOf="parent"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginEnd="16dp" />
+                                    android:layout_marginEnd="16dp"
+                                    app:layout_constraintHorizontal_bias="0.0" />
 
                                 <ImageView
                                     android:id="@+id/Frame"
@@ -214,6 +214,18 @@
                                     app:layout_constraintTop_toBottomOf="@+id/note"
                                     tools:ignore="HardcodedText"
                                     app:layout_constraintHorizontal_bias="0.501" />
+
+                                <Spinner
+                                    android:id="@+id/spinnerOS"
+                                    android:layout_width="0dp"
+                                    android:layout_height="33dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:layout_marginTop="16dp"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/note" />
 
                             </android.support.constraint.ConstraintLayout>
                         </LinearLayout>

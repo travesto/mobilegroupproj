@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import teammint.classroster.model.DataStudent;
@@ -100,6 +101,13 @@ public class StudentFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    public void setOnClickListener(View.OnClickListener c)
+    {
+        LinearLayout studentLayout = ((LinearLayout) getView().findViewById(R.id.studentLayout));
+        studentLayout.setClickable(true);
+        studentLayout.setOnClickListener(c);
     }
 
     @Override

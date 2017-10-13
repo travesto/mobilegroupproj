@@ -38,7 +38,6 @@ import teammint.classroster.model.DataStudent;
 public class MainActivity extends AppCompatActivity implements StudentFragment.OnFragmentInteractionListener {
     //Declarations
 
-    public static final ArrayList<Student> Students = new ArrayList<Student>();
     TabHost tabHost;
     Button btn;
     private static  final int CAMERA_REQUEST = 123;
@@ -96,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         host.addTab(spec);
 
 
+        final Spinner dropdownOS = (Spinner)findViewById(R.id.spinnerOS);
+        String[] itemsOS = new String[]{"Mac","Windows","Linux :("};
+        ArrayAdapter<String> adapterOS = new ArrayAdapter<>(this, R.layout.spinner_layout, itemsOS);
+        dropdownOS.setAdapter(adapterOS);
 
         final Spinner dropdown = (Spinner)findViewById(R.id.gender);
         //create a list of items for the spinner.
@@ -107,28 +110,6 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         dropdown.setAdapter(adapter);
 
 
-        /*final Spinner ddown = (Spinner)findViewById(R.id.sorter);
-        //create a list of items for the spinner.
-        String[] item = new String[]{"Male", "Female"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapterr = new ArrayAdapter<>(this, R.layout.spinner_layout, item);
-        //set the spinners adapter to the previously created one.
-        ddown.setAdapter(adapterr);
-        ddown.setOnItemSelectedListener(new OnItemSelectedListener()
-        {
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                if(selectedItem.equals("Male"))
-                {loadData();}
-                else if (selectedItem.equals("Female")){loadData2();}
-            } // to close the onItemSelected
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-
-            }
-        });*/
         btnAdd.setOnClickListener(new View.OnClickListener() {
             DataStudent mike = new DataStudent();
 
@@ -208,9 +189,16 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             FragmentManager FragMan = getSupportFragmentManager();
             ((LinearLayout) findViewById(R.id.studentsView)).removeAllViews();
             FragmentTransaction FragTran = FragMan.beginTransaction();
-            for (DataStudent s: mDataSource.getAll())
+            for(final DataStudent s: mDataSource.getAll())
             {
                 StudentFragment SF =  StudentFragment.newInstance(s);
+                SF.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view)
+                    {
+
+                    }
+                });
                 FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());
             }
             FragTran.commit();
