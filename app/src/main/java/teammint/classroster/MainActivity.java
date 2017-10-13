@@ -20,6 +20,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
@@ -205,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     public void loadData(){
         try {
             FragmentManager FragMan = getSupportFragmentManager();
+            ((LinearLayout) findViewById(R.id.studentsView)).removeAllViews();
             FragmentTransaction FragTran = FragMan.beginTransaction();
             for (DataStudent s: mDataSource.getAll())
             {
