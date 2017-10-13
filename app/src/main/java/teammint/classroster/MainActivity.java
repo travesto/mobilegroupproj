@@ -2,10 +2,7 @@
 package teammint.classroster;
 
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -29,12 +26,10 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import teammint.classroster.database.DataSource;
-import teammint.classroster.database.StudentsTable;
 import teammint.classroster.model.DataStudent;
 
 // OUR SAVING GRACE IS THIS COMMENT! MAY THE LORD HAVE MERCY ON OUR SOULS!
@@ -215,10 +210,9 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         startActivityForResult(intent, CAMERA_REQUEST);
     }
     //Clear picture data
-    public void clear()
+    public void clear(View v)
     {
         b.setImageBitmap(null);
-        picTaken = false;
     }
     //Store camera data in bitmap and set frame
     public void onActivityResult(int requestCode, int resultCode, Intent data)
