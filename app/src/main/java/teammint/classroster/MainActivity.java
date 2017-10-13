@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     ImageView b;
     DataSource mDataSource;
     private Button btnAdd, btnViewData;
+//    private Spinner os;
     private EditText Fname;
     private EditText Lname;
     private AutoCompleteTextView  major;
@@ -57,89 +58,100 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     //functions
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        picTaken = false;
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btn = (Button) findViewById(R.id.takePic);
-        b = (ImageView) findViewById(R.id.Frame);
-        Fname = (EditText) findViewById(R.id.fName);
-        Lname = (EditText) findViewById(R.id.lName);
-        // Get a reference to the AutoCompleteTextView in the layout
-        major = (AutoCompleteTextView) findViewById(R.id.major);
-        // Get the string array
-        String[] countries = getResources().getStringArray(R.array.majors_array);
-        // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
-        major.setAdapter(adapt);
-        hometown = (EditText) findViewById(R.id.location);
-        notes = (EditText) findViewById(R.id.note);
-        btnAdd = (Button) findViewById(R.id.addStudent);
-        mDataSource = new DataSource(this);
-        mDataSource.open();
-        loadData();
+        try {
+            picTaken = false;
 
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            btn = (Button) findViewById(R.id.takePic);
+            b = (ImageView) findViewById(R.id.Frame);
+            Fname = (EditText) findViewById(R.id.fName);
+            Lname = (EditText) findViewById(R.id.lName);
+//            os = (Spinner) findViewById(R.id.spinnerOS);
+            // Get a reference to the AutoCompleteTextView in the layout
+            major = (AutoCompleteTextView) findViewById(R.id.major);
+            // Get the string array
+            String[] countries = getResources().getStringArray(R.array.majors_array);
+            // Create the adapter and set it to the AutoCompleteTextView
+            ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
+            major.setAdapter(adapt);
+            hometown = (EditText) findViewById(R.id.location);
+            notes = (EditText) findViewById(R.id.note);
+            btnAdd = (Button) findViewById(R.id.addStudent);
+            mDataSource = new DataSource(this);
+            mDataSource.open();
 
-
-        final TabHost host = (TabHost)findViewById(R.id.tabHost);
-        host.setup();
-        //Tab 1
-        TabHost.TabSpec spec = host.newTabSpec("Add Student");
-        spec.setContent(R.id.tab1);
-        spec.setIndicator("Add Student");
-        host.addTab(spec);
-        //Tab 2
-        spec = host.newTabSpec("View All");
-        spec.setContent(R.id.studentsView);
-        spec.setIndicator("View All");
-        host.addTab(spec);
+            //mDataSource.wipe();
+            loadData();
 
 
-        final Spinner dropdownOS = (Spinner)findViewById(R.id.spinnerOS);
-        String[] itemsOS = new String[]{"Mac","Windows","Linux :("};
-        ArrayAdapter<String> adapterOS = new ArrayAdapter<>(this, R.layout.spinner_layout, itemsOS);
-        dropdownOS.setAdapter(adapterOS);
+            final TabHost host = (TabHost) findViewById(R.id.tabHost);
+            host.setup();
+            //Tab 1
+            TabHost.TabSpec spec = host.newTabSpec("Add Student");
+            spec.setContent(R.id.tab1);
+            spec.setIndicator("Add Student");
+            host.addTab(spec);
+            //Tab 2
+            spec = host.newTabSpec("View All");
+            spec.setContent(R.id.studentsView);
+            spec.setIndicator("View All");
+            host.addTab(spec);
 
-        final Spinner dropdown = (Spinner)findViewById(R.id.gender);
-        //create a list of items for the spinner.
-        String[] items = new String[]{"Male", "Female"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, items);
-        //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
+
+//            final Spinner dropdownOS = (Spinner) findViewById(R.id.spinnerOS);
+//            String[] itemsOS = new String[]{"Mac", "Windows", "Linux :("};
+//            ArrayAdapter<String> adapterOS = new ArrayAdapter<>(this, R.layout.spinner_layout, itemsOS);
+//            dropdownOS.setAdapter(adapterOS);
+
+            final Spinner dropdown = (Spinner) findViewById(R.id.gender);
+            //create a list of items for the spinner.
+            String[] items = new String[]{"Male", "Female"};
+            //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+            //There are multiple variations of this, but this is the basic variant.
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, items);
+            //set the spinners adapter to the previously created one.
+            dropdown.setAdapter(adapter);
 
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            DataStudent mike = new DataStudent();
+            btnAdd.setOnClickListener(new View.OnClickListener() {
+                DataStudent mike = new DataStudent();
 
-            @Override
-            public void onClick(View v) {
-                mike.setID(UUID.randomUUID().toString());
-                mike.setFName(Fname.getText().toString());
-                mike.setLName(Lname.getText().toString());
-                mike.setMajor(major.getText().toString());
-                mike.setHome(hometown.getText().toString());
-                mike.setGender(dropdown.getSelectedItem().toString());
-                mike.setNotes(notes.getText().toString());
-                mike.setImage(photo);
-                //long numTimes = mDataSource.getdataSimilarCount(notes.toString());
+                @Override
+                public void onClick(View v) {
+                    mike.setID(UUID.randomUUID().toString());
+                    mike.setFName(Fname.getText().toString());
+                    mike.setLName(Lname.getText().toString());
+                    mike.setMajor(major.getText().toString());
+                    mike.setHome(hometown.getText().toString());
+                    mike.setGender(dropdown.getSelectedItem().toString());
+                    mike.setNotes(notes.getText().toString());
+                    mike.setImage(photo);
+                    //Object o = os.getSelectedItem();
+                    //mike.setOS(o.toString());
+                    //long numTimes = mDataSource.getdataSimilarCount(notes.toString());
 
-                if (Fname.length() != 0 && Lname.length() != 0 && major.length() != 0 && hometown.length() != 0 && notes.length() != 0 && picTaken) {
-                    try {
-                        mDataSource.createStudent(mike);
-                        loadData();
-                        host.setCurrentTab(1);
-                    } catch (SQLiteException e) {
-                        e.printStackTrace();
+                    if (Fname.length() != 0 && Lname.length() != 0 && major.length() != 0 && hometown.length() != 0 && notes.length() != 0 && picTaken) {
+                        try {
+                            mDataSource.createStudent(mike);
+                            loadData();
+                            host.setCurrentTab(1);
+                        } catch (SQLiteException e) {
+                            e.printStackTrace();
+                        }
+
+                    } else {
+                        toastMessage("You must enter data in ALL text fields or Take Picture!!");
                     }
-
-                } else {
-                    toastMessage("You must enter data in ALL text fields or Take Picture!!");
                 }
-            }
-        });
-
+            });
+        }
+        catch (Exception e)
+        {
+            String s = e.getMessage();
+            s = s;
+        }
 
     }
     @Override
@@ -191,12 +203,15 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             FragmentTransaction FragTran = FragMan.beginTransaction();
             for(final DataStudent s: mDataSource.getAll())
             {
-                StudentFragment SF =  StudentFragment.newInstance(s);
+                final StudentFragment SF =  StudentFragment.newInstance(s);
+                final MainActivity ActivityMe = this;
                 SF.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view)
                     {
-
+                        Intent intent = new Intent(SF.getActivity() ,viewStudentActivity.class);
+                        intent.putExtra("StudentID",s.getID());
+                        startActivity(intent);
                     }
                 });
                 FragTran.add(R.id.studentsView, SF, s.hashCode()+s.getLName());

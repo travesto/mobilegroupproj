@@ -16,6 +16,7 @@ public class StudentsTable {
     public static final String COLUMN_GENDER = "gender";
     public static final String COLUMN_NOTES = "notes";
     public static final String COLUMN_IMAGE = "image";
+//    public static final String COLUMN_OS = "os";
 
     public static final String[] ALL_COL = {
             COLUMN_ID,COLUMN_FNAME,COLUMN_LNAME,COLUMN_MAJOR,COLUMN_LOCATION,
@@ -30,6 +31,7 @@ public class StudentsTable {
                     COLUMN_LOCATION + " TEXT," +
                     COLUMN_GENDER + " TEXT," +
                     COLUMN_NOTES + " TEXT," +
+//                    COLUMN_OS + " TEXT, " +
                     COLUMN_IMAGE + " BLOB" + ");";
 
     public static final String SQL_DELETE =

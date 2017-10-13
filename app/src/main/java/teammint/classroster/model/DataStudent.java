@@ -25,6 +25,7 @@ public class DataStudent {
     private String notes;
     private Bitmap image;
     private Byte[] imageStore;
+//    private String os;
 
         public DataStudent(){
 
@@ -64,6 +65,7 @@ public class DataStudent {
         public void setGender(String g) {
             this.gender = g;
         }
+//        public void setOS(String o) {this.os = o;}
         public void setID(String a) {
             this.studentid = a;
         }
@@ -91,6 +93,7 @@ public class DataStudent {
         public byte[] getImage() {
             return convertBytes(this.image);
         }
+//        public String getOS() {return this.os;}
         public String getGender() {
             return this.gender;
         }
@@ -106,6 +109,7 @@ public class DataStudent {
             val.put(StudentsTable.COLUMN_GENDER, gender);
             val.put(StudentsTable.COLUMN_NOTES, notes);
             val.put(StudentsTable.COLUMN_IMAGE,convertBytes(image));
+//            val.put(StudentsTable.COLUMN_OS, os);
             return val;
         }
 

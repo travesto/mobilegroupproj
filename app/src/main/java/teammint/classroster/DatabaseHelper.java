@@ -18,6 +18,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import android.graphics.Bitmap;
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -32,6 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String PERSON_COLUMN_MAJOR = "CS";
     public static final String PERSON_COLUMN_location = "location";
     public static final String PERSON_COLUMN_GENDER = "gender";
+//    public static final String PERSON_COLUMN_OS = "os";
     public static final String PERSON_COLUMN_IMAGE = "IMAGE";
 
     public DatabaseHelper(Context context) {
@@ -47,6 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PERSON_COLUMN_LNAME + " TEXT, " +
                 PERSON_COLUMN_MAJOR + " TEXT, " +
                 PERSON_COLUMN_location + " TEXT, " +
+//                PERSON_COLUMN_OS + " TEXT, " +
                 PERSON_COLUMN_GENDER + " Text)"
         );
     }
@@ -61,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertPerson(String Fname,String Lname, String maj, String gender,String location ) {
+    public boolean insertPerson(String Fname,String Lname, String maj, String gender,String location, String os ) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PERSON_COLUMN_FNAME, Fname);
@@ -69,6 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PERSON_COLUMN_MAJOR, maj);
         contentValues.put(PERSON_COLUMN_location, location);
         contentValues.put(PERSON_COLUMN_GENDER, gender);
+//        contentValues.put(PERSON_COLUMN_OS, os);
         db.insert(PERSON_TABLE_NAME, null, contentValues);
         return true;
     }

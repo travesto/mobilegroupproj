@@ -30,6 +30,8 @@ public class StudentFragment extends Fragment {
     private static final String ARG_PARAM_MAJOR = "ARG_PARAM_MAJOR";
     private static final String ARG_PARAM_IMAGE = "ARG_PARAM_IMAGE";
 
+    private View.OnClickListener Listener = null;
+
     // TODO: Rename and change types of parameters
     private String mParamName;
     private String mParamMajor;
@@ -84,6 +86,10 @@ public class StudentFragment extends Fragment {
         ((TextView) getView().findViewById(R.id.nameView)).setText(mParamName);
         ((TextView) getView().findViewById(R.id.majorView)).setText(mParamMajor);
         ((ImageView) getView().findViewById(R.id.imageView)).setImageBitmap(DataStudent.convertImage(mParamImage));
+        if(Listener != null){
+            setOnClickListener(Listener);
+            Listener = null;
+        }
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -105,9 +111,14 @@ public class StudentFragment extends Fragment {
 
     public void setOnClickListener(View.OnClickListener c)
     {
-        LinearLayout studentLayout = ((LinearLayout) getView().findViewById(R.id.studentLayout));
-        studentLayout.setClickable(true);
-        studentLayout.setOnClickListener(c);
+        if(getView() != null) {
+            LinearLayout studentLayout = ((LinearLayout) getView().findViewById(R.id.studentLayout));
+            studentLayout.setClickable(true);
+            studentLayout.setOnClickListener(c);
+        }
+        else{
+            Listener = c;
+        }
     }
 
     @Override
