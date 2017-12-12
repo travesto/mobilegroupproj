@@ -1,15 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/studentLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
     tools:context="teammint.classroster.StudentFragment">
 
     <ImageView
-        android:layout_marginTop="10dp"
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp">
+        android:layout_marginTop="10dp">
 
     </ImageView>
 

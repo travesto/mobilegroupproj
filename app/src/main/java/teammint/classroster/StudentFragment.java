@@ -8,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.zip.Inflater;
+import teammint.classroster.model.DataStudent;
 
 
 /**
@@ -24,12 +26,16 @@ import java.util.zip.Inflater;
 public class StudentFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM_NAME = "ARG_PARAM_NAME";
+    private static final String ARG_PARAM_MAJOR = "ARG_PARAM_MAJOR";
+    private static final String ARG_PARAM_IMAGE = "ARG_PARAM_IMAGE";
+
+    private View.OnClickListener Listener = null;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String mParamName;
+    private String mParamMajor;
+    private byte[] mParamImage;
 
     private OnFragmentInteractionListener mListener;
 
@@ -45,11 +51,12 @@ public class StudentFragment extends Fragment {
      * @return A new instance of fragment StudentFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StudentFragment newInstance(Student param1) {
+    public static StudentFragment newInstance(DataStudent param1) {
         StudentFragment fragment = new StudentFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1.getName());
-        args.putString(ARG_PARAM2, param1.getMajor());
+        args.putString(ARG_PARAM_NAME, param1.getFName()+" "+param1.getLName());
+        args.putString(ARG_PARAM_MAJOR, param1.getMajor());
+        args.putByteArray(ARG_PARAM_IMAGE, param1.getImage());
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,8 +65,9 @@ public class StudentFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParamName = getArguments().getString(ARG_PARAM_NAME);
+            mParamMajor = getArguments().getString(ARG_PARAM_MAJOR);
+            mParamImage = getArguments().getByteArray(ARG_PARAM_IMAGE);
         }
     }
 
@@ -75,8 +83,13 @@ public class StudentFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
     {
-        ((TextView) getView().findViewById(R.id.nameView)).setText(mParam1);
-        ((TextView) getView().findViewById(R.id.majorView)).setText(mParam2);
+        ((TextView) getView().findViewById(R.id.nameView)).setText(mParamName);
+        ((TextView) getView().findViewById(R.id.majorView)).setText(mParamMajor);
+        ((ImageView) getView().findViewById(R.id.imageView)).setImageBitmap(DataStudent.convertImage(mParamImage));
+        if(Listener != null){
+            setOnClickListener(Listener);
+            Listener = null;
+        }
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -93,6 +106,18 @@ public class StudentFragment extends Fragment {
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    public void setOnClickListener(View.OnClickListener c)
+    {
+        if(getView() != null) {
+            LinearLayout studentLayout = ((LinearLayout) getView().findViewById(R.id.studentLayout));
+            studentLayout.setClickable(true);
+            studentLayout.setOnClickListener(c);
+        }
+        else{
+            Listener = c;
         }
     }
 

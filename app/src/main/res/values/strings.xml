@@ -10,4 +10,60 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filterValuess">\"First Name</string>
+       
+    <string-array name="majors_array">
+               
+        <item>Business Administration</item>
+        <item>Liberal Arts</item>
+        <item>Psychology</item>
+        <item>General Studies</item>
+        <item>Biology</item>
+        <item>Accounting</item>
+        <item>Social Work</item>
+        <item>Criminal Justice</item>
+        <item>English</item>
+        <item>Elementary Education</item>
+        <item>Finance</item>
+        <item>Speech Communication and Rhetoric</item>
+        <item>Computer Science</item>
+        <item>Political Science</item>
+        <item>Advertising and Marketing</item>
+        <item>Economics</item>
+        <item>Sociology</item>
+        <item>History</item>
+        <item>Education</item>
+        <item>Kinesiology And Exercise Science</item>
+        <item>Math</item>
+        <item>Information Technology</item>
+        <item>Chemistry</item>
+        <item>Social Science</item>
+        <item>Information Science</item>
+        <item>Journalism</item>
+        <item>International Relations</item>
+        <item>Fine Arts and Studio Arts</item>
+        <item>Information Systems</item>
+        <item>Anthropology</item>
+        <item>Music</item>
+        <item>Graphic Design</item>
+        <item>Drama and Theatre Arts</item>
+        <item>Physics</item>
+        <item>Physical Education</item>
+        <item>Spanish Language and Literature</item>
+        <item>Human Development and Family Studies (HDFS)</item>
+        <item>Biochemistry</item>
+        <item>Philosophy</item>
+        <item>Engineering</item>
+        <item>Audiology and Speech Pathology</item>
+        <item>Occupational Therapy</item>
+        <item>Environmental Science</item>
+        <item>Ministry</item>
+        <item>International and Global Studies</item>
+        <item>Theology</item>
+        <item>Animal Science</item>
+        <item>Management Science</item>
+        <item>Religious Studies</item>
+        <item>Digital Entertainment Technology</item>
+           
+    </string-array>
 </resources>
