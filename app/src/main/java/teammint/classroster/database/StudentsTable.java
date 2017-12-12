@@ -28,7 +28,7 @@ public class StudentsTable {
                     COLUMN_LOCATION + " TEXT," +
                     COLUMN_GENDER + " TEXT," +
                     COLUMN_NOTES + " TEXT," +
-                    COLUMN_IMAGE + " TEXT" + ");";
+                    COLUMN_IMAGE + " BLOB" + ");";
 
     public static final String SQL_DELETE =
             "DROP TABLE " + TABLE_STUDENT;

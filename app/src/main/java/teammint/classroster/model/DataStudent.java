@@ -21,7 +21,7 @@ public class DataStudent {
     private String location;
     private String gender;
     private String notes;
-    private String image;
+    private Bitmap image;
     private Byte[] imageStore;
 
         public DataStudent(){
@@ -53,8 +53,11 @@ public class DataStudent {
         public void setNotes(String o) {
             this.notes = o;
         }
-        public void setImage(String b) {
-            this.image = (b);
+        public void setImage(Bitmap b) {
+            this.image = b;
+        }
+        public void setImage(byte[] b) {
+            this.image = getImage(b);
         }
         public void setGender(String g) {
             this.gender = g;
@@ -83,12 +86,9 @@ public class DataStudent {
         public String getNotes() {
             return this.notes;
         }
-        public String getImage() {
-            return this.image;
+        public byte[] getImage() {
+            return getBytes(this.image);
         }
-        //public byte[] getImage() {
-          //  return getBytes(this.image);
-        //}
         public String getGender() {
             return this.gender;
         }
@@ -103,7 +103,7 @@ public class DataStudent {
             val.put(StudentsTable.COLUMN_LOCATION, location);
             val.put(StudentsTable.COLUMN_GENDER, gender);
             val.put(StudentsTable.COLUMN_NOTES, notes);
-            val.put(StudentsTable.COLUMN_IMAGE,image);
+            val.put(StudentsTable.COLUMN_IMAGE,getBytes(image));
             return val;
         }
 

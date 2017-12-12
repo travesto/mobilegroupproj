@@ -8,6 +8,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,7 +22,6 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import teammint.classroster.database.DataSource;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     private static  final int CAMERA_REQUEST = 123;
     ImageView b;
     DataSource mDataSource;
-    //DatabaseHelper mDatabaseHelper;
     private Button btnAdd, btnViewData;
     private EditText Fname;
     private EditText Lname;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     private EditText notes;
     private EditText image;
     private ListView listView;
+    private Bitmap photo;
 
     //functions
     @Override
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
         hometown = (EditText) findViewById(R.id.location);
         notes = (EditText) findViewById(R.id.note);
         btnAdd = (Button) findViewById(R.id.addStudent);
-        //DatabaseHelper = new DatabaseHelper(this);
         mDataSource = new DataSource(this);
         mDataSource.open();
         toastMessage("Database Created");
@@ -101,32 +101,23 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
                 mike.setHome(hometown.getText().toString());
                 mike.setGender(dropdown.getSelectedItem().toString());
                 mike.setNotes(notes.getText().toString());
-                mike.setImage("Yeeap");
+                mike.setImage(photo);
                 //long numTimes = mDataSource.getdataSimilarCount(notes.toString());
 
-                if (Fname.length() != 0 || Lname.length() != 0 || major.length() != 0 || hometown.length() != 0 || notes.length() != 0) {
+                if (Fname.length() != 0 || Lname.length() != 0 || major.length() != 0 || hometown.length() != 0 || notes.length() != 0 || photo.getByteCount() != 0) {
                     try {
                         mDataSource.createStudent(mike);
+                        //loadData();
                     } catch (SQLiteException e) {
                         e.printStackTrace();
                     }
                     toastMessage("Save Sucessfull!");
                 } else {
-                    toastMessage("You must enter data in ALL text fields!!");
+                    toastMessage("You must enter data in ALL text fields or Take Picture!!");
                 }
             }
-
         });
-        List<DataStudent> listfromDB = mDataSource.getAll();
-        List<String> studentNames = new ArrayList<>();
-        for(DataStudent student : listfromDB)
-        {
-            studentNames.add(student.getFName());
-        }
-        ArrayAdapter<String> ada = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,studentNames);
-        ListView listView = (ListView) findViewById(R.id.ListView);
-        listView.setAdapter(ada);
-/*
+
         try {
             for (int i = 0; i < 20; i++)
                 Students.add(new Student(i));
@@ -146,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
             String s = e.getMessage();
             s = s;
         }
-        */
+
     }
     @Override
     protected void onPause()
@@ -177,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            photo = (Bitmap) data.getExtras().get("data");
             b.setImageBitmap(photo);
         }
     }
@@ -190,4 +181,15 @@ public class MainActivity extends AppCompatActivity implements StudentFragment.O
     {
 
     }
+    /*public void loadData(){
+        List<DataStudent> listfromDB = mDataSource.getAll();
+        List<String> studentNames = new ArrayList<>();
+        for(DataStudent student : listfromDB)
+        {
+            studentNames.add(student.getFName());
+        }
+        ArrayAdapter<String> ada = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,studentNames);
+        ListView listView = (ListView) findViewById(R.id.ListView);
+        listView.setAdapter(ada);
+    }*/
 }
